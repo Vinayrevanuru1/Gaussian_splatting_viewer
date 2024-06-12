@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGL Viewer</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://quadjr.github.io/aframe-gaussian-splatting/index.js"></script>
+    <style>
+        #backButton {
+            position: fixed;
+            bottom: 20px;   /* Moved to bottom */
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f4f4f4;
+            border: none;
+            border-radius: 5px;
+            z-index: 999; /* High z-index to ensure visibility */
+            color: black; /* Ensuring the text is visible */
+        }
+    </style>
+</head>
+<body>
+    <button id="backButton" onclick="goBack()">Back to Main Page</button>
+    <a-scene renderer="antialias: false" stats>
+        <a-entity gaussian_splatting="src:https://huggingface.co/Vinay2701/Gaussian_splats/resolve/main/Pool_table_processed.ply;" rotation="0 0 0" position="0 1.5 -2"></a-entity>  
+        <a-sky color="#000"></a-sky>
+    </a-scene>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
+
